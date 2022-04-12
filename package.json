@@ -1,0 +1,29 @@
+{
+  "name": "slippi-time-conversion-tool",
+  "version": "1.0.0-alpha",
+  "description": "Converts in-game time to frames and vice-versa with a given Slippi game",
+  "main": "out/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sv4u/slippi-time-conversion-tool.git"
+  },
+  "keywords": [
+    "time",
+    "conversion",
+    "slippi-js",
+    "melee",
+    "frame-data"
+  ],
+  "author": "Sasank 'squatch/jbub' Vishnubhatla",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/sv4u/slippi-time-conversion-tool/issues"
+  },
+  "homepage": "https://github.com/sv4u/slippi-time-conversion-tool#readme",
+  "dependencies": {
+    "@slippi/slippi-js": "^6.2.1"
+  }
+}
