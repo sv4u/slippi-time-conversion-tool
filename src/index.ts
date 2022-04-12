@@ -1,2 +1,2 @@
-const message : string = "this is a message";
+const message = 'this is a message';
 console.log(message);

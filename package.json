@@ -2,9 +2,14 @@
   "name": "slippi-time-conversion-tool",
   "version": "1.0.0-alpha",
   "description": "Converts in-game time to frames and vice-versa with a given Slippi game",
-  "main": "out/index.js",
+  "main": "out/slippi-time-conversion-tool.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc",
+    "eslint": "eslint . --ext .ts --fix",
+    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "lint": "npm run prettier && npm run eslint",
+    "clean": "rm -rf out",
+    "start": "npm run compile && node out/slippi-time-conversion-tool.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +30,14 @@
   "homepage": "https://github.com/sv4u/slippi-time-conversion-tool#readme",
   "dependencies": {
     "@slippi/slippi-js": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2"
   }
 }
