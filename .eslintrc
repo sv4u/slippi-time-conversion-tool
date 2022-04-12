@@ -12,6 +12,7 @@
         "prettier"
     ],
     "rules": {
+        "linebreak-style": "off",
         "prettier/prettier": 2
     }
 }

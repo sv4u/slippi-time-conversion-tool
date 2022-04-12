@@ -10,15 +10,15 @@
     "lib": ["ES6"],                                      /* Specify a set of bundled library declaration files that describe the target runtime environment. */
 
     /* Modules */
-    "module": "System",                                /* Specify what module code is generated. */
-    "rootDir": "src"  ,                                  /* Specify the root folder within your source files. */
+    "module": "CommonJS",                               /* Specify what module code is generated. */
+    "rootDir": "./"  ,                                  /* Specify the root folder within your source files. */
 
     /* JavaScript Support */
-    "allowJs": false,                                     /* Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files. */
+    "allowJs": false,                                    /* Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files. */
 
     /* Emit */
     "sourceMap": true,                                   /* Create source map files for emitted JavaScript files. */
-    "outFile": "out/slippi-time-conversion-tool.js",     /* Specify a file that bundles all outputs into one JavaScript file. */
+    // "outFile": "out/slippi-time-conversion-tool.js",  /* Specify a file that bundles all outputs into one JavaScript file. */
     "outDir": "out",                                     /* Specify an output folder for all emitted files. */
 
     /* Interop Constraints */
@@ -34,5 +34,5 @@
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "out"]
 }
