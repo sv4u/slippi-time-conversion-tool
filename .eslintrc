@@ -12,7 +12,8 @@
         "prettier"
     ],
     "rules": {
+        "prettier/prettier": 2,
         "linebreak-style": 0,
-        "prettier/prettier": 2
+        "no-invalid-regexp": 0
     }
 }
