@@ -1,3 +1,3 @@
-import { null_tc_tests } from './TimeConverter';
+import { tc_tests } from './TimeConverter';
 
-null_tc_tests();
+tc_tests();

@@ -1,22 +1,35 @@
 import assert from 'assert';
 import TimeConverter from '../src/TimeConverter';
 
-export function null_tc_tests() {
+export function tc_tests() {
   describe('Time Converter Tests', () => {
     const fname = 'slippis/test.slp';
-    const tc1 = new TimeConverter(fname);
-    const tc2 = new TimeConverter(fname, false);
-    const tc3 = new TimeConverter(null, false);
 
-    it('invoking TimeConverter on an actual file should work', () => {
-      assert.notEqual(tc1, null);
-    });
+    describe('actual file with game check enabled', () => {
+      const tc1 = new TimeConverter(fname, true);
+      it(`$tc1 != null`, () => {
+        assert.notEqual(tc1, null);
+      });
 
-    it('invoking TimeConverter on an actual file with no file check should work', () => {
-      assert.notEqual(tc2, null);
-    });
-    it('invoking TimeConverter on null should work', () => {
-      assert.notEqual(tc3, null);
+      const zeroElapsed: number | undefined = tc1.toFrames('00:00');
+      it(`tc1 @ time 00:00 elapsed = 0`, () => {
+        assert.equal(zeroElapsed, 0);
+      });
+
+      const oneElapsed: number | undefined = tc1.toFrames('01:00');
+      it(`tc1 @ time 01:00 elapsed = 3600`, () => {
+        assert.equal(oneElapsed, 3600);
+      });
+
+      const twoElapsed: number | undefined = tc1.toFrames('02:00');
+      it(`tc1 @ time 02:00 elapsed = 7200`, () => {
+        assert.equal(twoElapsed, 7200);
+      });
+
+      const tenElapsed: number | undefined = tc1.toFrames('10:00');
+      it(`tc1 @ time 10:00 elapsed = undefined`, () => {
+        assert.equal(tenElapsed, undefined);
+      });
     });
   });
 }
