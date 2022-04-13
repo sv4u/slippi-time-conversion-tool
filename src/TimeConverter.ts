@@ -1,4 +1,4 @@
-import { SlippiGame } from '@slippi/slippi-js';
+import { FrameEntryType, FramesType, SlippiGame } from '@slippi/slippi-js';
 
 class TimeConverter {
   game: SlippiGame | null;
@@ -9,7 +9,7 @@ class TimeConverter {
     this.game = _gameCheck ? new SlippiGame(file ?? '') : null;
   }
 
-  toFrames(time: string): number {
+  toFrames(time: string): number | undefined {
     const TIME_REGEX_EXP = '([0-9]{1,2}):([0-9]{2})';
     const tokens: RegExpMatchArray | null = time.match(TIME_REGEX_EXP);
 
@@ -27,7 +27,21 @@ class TimeConverter {
     const total_seconds = seconds + minutes * 60;
     const frames = total_seconds * 60;
 
-    // TODO do check on game
+    if (this.gameCheck) {
+      if (this.game == null) {
+        throw new Error(`supplied game is null`);
+      }
+
+      const gameFrames: FramesType | undefined = this.game.getFrames();
+      if (gameFrames == undefined) {
+        throw new Error(`supplied game has undefined frames`);
+      }
+
+      const frameInQuestion: FrameEntryType = gameFrames[frames];
+      if (frameInQuestion == null || frameInQuestion == undefined) {
+        return undefined;
+      }
+    }
 
     return frames;
   }
