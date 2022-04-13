@@ -20,6 +20,6 @@ jobs:
       with:
         node-version: '17.5.0'
     - name: Clean install
-    - run: npm install
+      run: npm install
     - name: Running tests
-    - run: npm test
+      run: npm test
