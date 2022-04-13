@@ -2,9 +2,11 @@ import { SlippiGame } from '@slippi/slippi-js';
 
 class TimeConverter {
   game: SlippiGame | null;
+  gameCheck: boolean;
 
-  constructor(file: string, _gameCheck = true) {
-    this.game = _gameCheck ? new SlippiGame(file) : null;
+  constructor(file: string | null, _gameCheck = true) {
+    this.gameCheck = _gameCheck;
+    this.game = _gameCheck ? new SlippiGame(file ?? '') : null;
   }
 
   toFrames(time: string): number {
@@ -24,6 +26,8 @@ class TimeConverter {
 
     const total_seconds = seconds + minutes * 60;
     const frames = total_seconds * 60;
+
+    // TODO do check on game
 
     return frames;
   }
@@ -48,6 +52,8 @@ class TimeConverter {
     const seconds = total_seconds % 60;
 
     const time = `${minutes}:` + (seconds < 10 ? `0${seconds}` : `${seconds}`);
+
+    // TODO check on game
 
     return time;
   }
