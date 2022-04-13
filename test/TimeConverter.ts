@@ -11,24 +11,33 @@ export function tc_tests() {
         assert.notEqual(tc1, null);
       });
 
-      const zeroElapsed: number | undefined = tc1.toFrames('00:00');
-      it(`tc1 @ time 00:00 elapsed = 0`, () => {
-        assert.equal(zeroElapsed, 0);
+      describe('#toFrames', () => {
+        const zeroElapsed: number | undefined = tc1.toFrames('00:00');
+        it(`tc1 @ time 00:00 elapsed = 0`, () => {
+          assert.equal(zeroElapsed, 0);
+        });
+
+        const oneElapsed: number | undefined = tc1.toFrames('01:00');
+        it(`tc1 @ time 01:00 elapsed = 3600`, () => {
+          assert.equal(oneElapsed, 3600);
+        });
+
+        const twoElapsed: number | undefined = tc1.toFrames('02:00');
+        it(`tc1 @ time 02:00 elapsed = 7200`, () => {
+          assert.equal(twoElapsed, 7200);
+        });
+
+        const tenElapsed: number | undefined = tc1.toFrames('10:00');
+        it(`tc1 @ time 10:00 elapsed = undefined`, () => {
+          assert.equal(tenElapsed, undefined);
+        });
       });
 
-      const oneElapsed: number | undefined = tc1.toFrames('01:00');
-      it(`tc1 @ time 01:00 elapsed = 3600`, () => {
-        assert.equal(oneElapsed, 3600);
-      });
-
-      const twoElapsed: number | undefined = tc1.toFrames('02:00');
-      it(`tc1 @ time 02:00 elapsed = 7200`, () => {
-        assert.equal(twoElapsed, 7200);
-      });
-
-      const tenElapsed: number | undefined = tc1.toFrames('10:00');
-      it(`tc1 @ time 10:00 elapsed = undefined`, () => {
-        assert.equal(tenElapsed, undefined);
+      describe('#toTime', () => {
+        const zeroFrame: string | undefined = tc1.toTime('0');
+        it(`tc1 @ frame 0 = 00:00`, () => {
+          assert.equal(zeroFrame, '00:00');
+        });
       });
     });
   });

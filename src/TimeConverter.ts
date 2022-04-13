@@ -65,7 +65,9 @@ class TimeConverter {
     const minutes = ~~(total_seconds / 60);
     const seconds = total_seconds % 60;
 
-    const time = `${minutes}:` + (seconds < 10 ? `0${seconds}` : `${seconds}`);
+    const time =
+      (minutes < 10 ? `0${minutes}:` : `${minutes}:`) +
+      (seconds < 10 ? `0${seconds}` : `${seconds}`);
 
     if (this.gameCheck) {
       if (this.game == null) {
