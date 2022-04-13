@@ -1,5 +1,4 @@
 {
     "prettier.configPath": ".prettierrc",
-    "prettier.prettierPath": "prettier",
-    "prettier.singleQuote": true
+    "prettier.prettierPath": "prettier"
 }
