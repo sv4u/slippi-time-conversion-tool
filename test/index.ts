@@ -1,7 +1,3 @@
-import assert from 'assert';
+import { tc_tests } from './TimeConverter';
 
-describe('Top Level Index Tests', () => {
-  it('Does 1+1=2?', () => {
-    assert.equal(1 + 1, 2);
-  });
-});
+tc_tests();
