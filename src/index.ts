@@ -11,3 +11,4 @@ console.log(tc.toTime('0'));
 console.log(tc.toTime('12'));
 console.log(tc.toTime('345'));
 console.log(tc.toTime('6789'));
+console.log(tc.toTime('12345'));

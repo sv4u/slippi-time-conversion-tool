@@ -46,7 +46,7 @@ class TimeConverter {
     return frames;
   }
 
-  toTime(frame: string): string {
+  toTime(frame: string): string | undefined {
     const FRAME_REGEX_EXP = '([0-9]*)';
     const tokens: RegExpMatchArray | null = frame.match(FRAME_REGEX_EXP);
 
@@ -67,7 +67,21 @@ class TimeConverter {
 
     const time = `${minutes}:` + (seconds < 10 ? `0${seconds}` : `${seconds}`);
 
-    // TODO check on game
+    if (this.gameCheck) {
+      if (this.game == null) {
+        throw new Error(`supplied game is null`);
+      }
+
+      const gameFrames: FramesType | undefined = this.game.getFrames();
+      if (gameFrames == undefined) {
+        throw new Error(`supplied game has undefined frames`);
+      }
+
+      const frameInQuestion: FrameEntryType = gameFrames[n_frame];
+      if (frameInQuestion == null || frameInQuestion == undefined) {
+        return undefined;
+      }
+    }
 
     return time;
   }
